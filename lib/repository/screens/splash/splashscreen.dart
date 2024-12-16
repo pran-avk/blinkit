@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:blinkit/domain/constants/appcolors.dart';
 import 'package:blinkit/repository/screens/login/loginscreen.dart';
 import 'package:blinkit/repository/widgets/uihelper.dart';
@@ -16,11 +15,11 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     super.initState();
+    // Delay of 3 seconds before navigating to the login screen
     Timer(const Duration(seconds: 3), () {
-      // Corrected Navigator.pushReplacement syntax
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const Loginscreens()),
+        MaterialPageRoute(builder: (context) =>const LoginScreens()),
       );
     });
   }
@@ -33,8 +32,10 @@ class _SplashscreenState extends State<Splashscreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Ensure the image path is valid and added to pubspec.yaml
+            // Ensure the image path is valid and listed in pubspec.yaml
             UiHelper.customImage(img: 'th.jpg'),
+            const SizedBox(height: 20),
+            const CircularProgressIndicator(), // Optional loading indicator
           ],
         ),
       ),
